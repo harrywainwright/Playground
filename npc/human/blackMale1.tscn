@@ -140,6 +140,8 @@ animations = [{
 
 [node name="blackMale1" type="CharacterBody2D"]
 script = ExtResource("1_qe1m3")
+speed = null
+limit = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
