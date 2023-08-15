@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://byirrbmjhr3pe"]
+[gd_scene load_steps=23 format=3 uid="uid://byirrbmjhr3pe"]
 
 [ext_resource type="Texture2D" uid="uid://ch65ekjsp8mi5" path="res://art/npc1.png" id="1_15qua"]
 [ext_resource type="Script" path="res://npc/human/blackMale1.gd" id="1_qe1m3"]
@@ -18,6 +18,14 @@ region = Rect2(0, 32, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yplt"]
 atlas = ExtResource("1_15qua")
 region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7ro2"]
+atlas = ExtResource("1_15qua")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwixf"]
+atlas = ExtResource("1_15qua")
+region = Rect2(0, 96, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgj4o"]
 atlas = ExtResource("1_15qua")
@@ -88,6 +96,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_y7ro2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwixf")
+}],
+"loop": true,
+"name": &"walkIdle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tgj4o")
 }, {
 "duration": 1.0,
@@ -138,12 +157,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nyx2"]
+radius = 3.0
+
 [node name="blackMale1" type="CharacterBody2D"]
 script = ExtResource("1_qe1m3")
-speed = null
-limit = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_kquen")
-animation = &"walkLeft"
+animation = &"walkIdle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_3nyx2")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn8tbx0koh8ke"]
+
+[ext_resource type="Texture2D" uid="uid://dpkqsthqyj2c6" path="res://art/composite/Body_32x32_01_cropped.png" id="1_2dqvt"]
+
+[node name="compositeNPCTest" type="Node2D"]
+
+[node name="compositeSprites" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="compositeSprites"]
+texture = ExtResource("1_2dqvt")
+hframes = 24
+vframes = 2
+frame = 47
+
+[node name="Eyes" type="Sprite2D" parent="compositeSprites"]
+
+[node name="Hair" type="Sprite2D" parent="compositeSprites"]
+
+[node name="Outfit" type="Sprite2D" parent="compositeSprites"]

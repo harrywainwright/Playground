@@ -2474,4 +2474,3 @@ tilemap = NodePath("../..")
 [node name="blackMale1" parent="TileMap" instance=ExtResource("6_k4q6q")]
 position = Vector2(172.372, 94.323)
 rotation = -0.00393173
-scale = Vector2(1, 1)

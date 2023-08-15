@@ -7,24 +7,15 @@ extends CharacterBody2D
 
 var startPosition
 var endPosition
-#var rng = RandomNumberGenerator.new()
 
 func _ready():
 	startPosition = position
-	endPosition = startPosition + Vector2(0, 3*16)
+	endPosition = startPosition + Vector2(3*16, 3*16)
 
 func changeDirection():
 	var temp = endPosition
 	endPosition = startPosition
 	startPosition = temp
-
-# func wait():
-# 	var rng = RandomNumberGenerator.new()
-# 	#randomize end poisition timer
-# 	var rand = rng.randf_range(100, 300)
-# 	#pause npc until changing direction
-# 	await $Timer.rand
-
 	
 
 func updateVelocity():
@@ -34,11 +25,12 @@ func updateVelocity():
 	velocity = moveDirection.normalized() * speed
 
 func updateAnimation():
-	# if velocity.length() == 0:
-	#  	animations.stop()
-	#  	return
-	var direction = "Down"
+	var direction = "Idle"
 	if velocity.y < 0: direction = "Up"
+	if velocity.y > 0: direction = "Down"
+	if velocity.x < 0: direction = "Right"
+	if velocity.x > 0: direction = "Left"
+
 	animations.play("walk" + direction)		
 
 func _physics_process(_delta):
