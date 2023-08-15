@@ -17,9 +17,17 @@ func updateAnimation():
 	elif velocity.y < 0: direction = "Up"
 	animations.play("walk" + direction)
 
+func handleCollision():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		#print(collider.name)
+
+
 func _physics_process(_delta):
 	handleInput()
 	move_and_slide()
+	handleCollision()
 	updateAnimation()
 
 	
