@@ -9,7 +9,6 @@ var startPosition = global_position
 var endPosition
 var rng = RandomNumberGenerator.new()
 var randDir
-# var randTime
 var direction
 
 enum npcState{
@@ -47,6 +46,8 @@ func changeDirection():
 	
 	animations.play("walk" + direction)		
 
+	# wait_for_timer()
+
 	# randTime = rng.randf_range(2.0, 5.0)
 	# await get_tree().create_timer(randTime).timeout	
 	
@@ -67,6 +68,8 @@ func returnToStart(direction):
 
 	animations.play("walk" + direction)		
 
+	#wait_for_timer()
+
 	# randTime = rng.randf_range(2.0, 5.0)
 	# await get_tree().create_timer(randTime).timeout	
 
@@ -82,8 +85,6 @@ func updateVelocity():
 
 	elif moveDirection.length() <= limit && direction == null:
 		changeDirection()
-
-	print(direction)
 		
 
 func _physics_process(_delta):

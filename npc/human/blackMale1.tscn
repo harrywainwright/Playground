@@ -181,4 +181,6 @@ shape = SubResource("RectangleShape2D_twbu3")
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_73x7x")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
