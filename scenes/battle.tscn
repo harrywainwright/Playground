@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6fxhmh5y1c1k"]
+[gd_scene load_steps=12 format=3 uid="uid://b6fxhmh5y1c1k"]
 
 [ext_resource type="Texture2D" uid="uid://bo1k4vqgetf7a" path="res://art/background_battle/Alley_Graffiti_(21303505862).jpg" id="1_h1f3v"]
+[ext_resource type="Script" path="res://scenes/battle.gd" id="1_hgpb1"]
 [ext_resource type="FontFile" uid="uid://1of8cife0ot1" path="res://art/fonts/NESCyrillic.ttf" id="2_hoknl"]
 [ext_resource type="Texture2D" uid="uid://cig6q0r85laql" path="res://art/enemies/hobo.png" id="2_tkh1v"]
+[ext_resource type="FontFile" uid="uid://bo0fmjvybopui" path="res://art/fonts/Adventurer.ttf" id="5_mh3ng"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mci1l"]
 bg_color = Color(0.952941, 0.2, 0.278431, 1)
@@ -25,6 +27,14 @@ border_color = Color(0.920995, 0.920995, 0.920995, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_invo6"]
 bg_color = Color(0.921569, 0.921569, 0.921569, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puh6g"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.964706, 0.964706, 0.964706, 1)
+
 [node name="Battle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -32,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hgpb1")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -152,6 +163,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 6
 alignment = 1
 
 [node name="Attack" type="Button" parent="ActionsPanel/Actions"]
@@ -190,3 +202,39 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1bfb0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_invo6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_invo6")
 text = "RUN"
+
+[node name="Textbox" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_puh6g")
+
+[node name="Label" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_mh3ng")
+text = "A homeless man appears! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ticker" type="Label" parent="Textbox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_mh3ng")
+text = ">"
+
+[connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b0l3co5pxjxre"]
+
+[ext_resource type="Script" path="res://src/BaseEnemy.gd" id="1_mn3er"]
+[ext_resource type="Texture2D" uid="uid://cig6q0r85laql" path="res://art/enemies/hobo.png" id="2_0qwf2"]
+
+[resource]
+script = ExtResource("1_mn3er")
+name = "Hobo"
+texture = ExtResource("2_0qwf2")
+health = 45
+damage = 20
