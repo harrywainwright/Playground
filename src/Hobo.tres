@@ -8,4 +8,4 @@ script = ExtResource("1_mn3er")
 name = "Hobo"
 texture = ExtResource("2_0qwf2")
 health = 45
-damage = 20
+damage = 15

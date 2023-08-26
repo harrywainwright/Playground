@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cuo6mukug3dym"]
+
+[ext_resource type="Script" path="res://src/BaseEnemy.gd" id="1_gq3n8"]
+[ext_resource type="Texture2D" uid="uid://brqcxchsd71sb" path="res://art/enemies/pimp.png" id="2_8scit"]
+
+[resource]
+script = ExtResource("1_gq3n8")
+name = "Pimp"
+texture = ExtResource("2_8scit")
+health = 30
+damage = 10

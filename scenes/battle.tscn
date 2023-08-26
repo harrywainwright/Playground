@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6fxhmh5y1c1k"]
+[gd_scene load_steps=20 format=3 uid="uid://b6fxhmh5y1c1k"]
 
 [ext_resource type="Texture2D" uid="uid://bo1k4vqgetf7a" path="res://art/background_battle/Alley_Graffiti_(21303505862).jpg" id="1_h1f3v"]
 [ext_resource type="Script" path="res://scenes/battle.gd" id="1_hgpb1"]
 [ext_resource type="FontFile" uid="uid://1of8cife0ot1" path="res://art/fonts/NESCyrillic.ttf" id="2_hoknl"]
+[ext_resource type="Resource" uid="uid://b0l3co5pxjxre" path="res://src/Hobo.tres" id="2_nae6m"]
 [ext_resource type="Texture2D" uid="uid://cig6q0r85laql" path="res://art/enemies/hobo.png" id="2_tkh1v"]
 [ext_resource type="FontFile" uid="uid://bo0fmjvybopui" path="res://art/fonts/Adventurer.ttf" id="5_mh3ng"]
 
@@ -35,6 +36,182 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.964706, 0.964706, 0.964706, 1)
 
+[sub_resource type="Animation" id="Animation_roymn"]
+resource_name = "enemy_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0m0u0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ActionsPanel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ytnv3"]
+resource_name = "shake"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, -3), Vector2(5, 9), Vector2(-6, 6), Vector2(0, -8), Vector2(8, 1), Vector2(-1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ms234"]
+resource_name = "shake_mini"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, -3), Vector2(3, 5), Vector2(-3, 3), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bbwpx"]
+resource_name = "enemy_died"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k77x2"]
+resource_name = "player_died"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.121569, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ActionsPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecscq"]
+_data = {
+"RESET": SubResource("Animation_0m0u0"),
+"enemy_damaged": SubResource("Animation_roymn"),
+"enemy_died": SubResource("Animation_bbwpx"),
+"player_died": SubResource("Animation_k77x2"),
+"shake": SubResource("Animation_ytnv3"),
+"shake_mini": SubResource("Animation_ms234")
+}
+
 [node name="Battle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -43,12 +220,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hgpb1")
+enemy = ExtResource("2_nae6m")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_right = 723.0
-offset_bottom = 542.0
+offset_left = -90.0
+offset_top = -45.0
+offset_right = 632.0
+offset_bottom = 497.0
+scale = Vector2(1.19655, 1.19655)
 texture = ExtResource("1_h1f3v")
 expand_mode = 1
 stretch_mode = 4
@@ -92,6 +272,16 @@ vertical_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer"]
 layout_mode = 2
+texture = ExtResource("2_tkh1v")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Enemy" type="TextureRect" parent="EnemyContainer/Enemy"]
+texture = ExtResource("2_tkh1v")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Enemy" type="TextureRect" parent="EnemyContainer/Enemy/Enemy"]
 texture = ExtResource("2_tkh1v")
 expand_mode = 5
 stretch_mode = 5
@@ -237,4 +427,15 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_mh3ng")
 text = ">"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ecscq")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+modulate = Color(1, 0.137255, 0, 1)
+anchor_mode = 0
+
+[connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]
