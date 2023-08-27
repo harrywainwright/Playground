@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu74j66osarko"]
+
+[ext_resource type="Script" path="res://scenes/Dialogue/dialoguePlayer.gd" id="1_erbo8"]
+[ext_resource type="Texture2D" uid="uid://dnvmv0fo638fu" path="res://art/dialogue_box.png" id="1_jkwqd"]
+[ext_resource type="FontFile" uid="uid://1of8cife0ot1" path="res://art/fonts/NESCyrillic.ttf" id="2_ef77n"]
+
+[node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_erbo8")
+d_file = "res://npc/dialogue/json/blackMale_chats.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 92.0
+offset_top = 22.0
+offset_right = 542.0
+offset_bottom = 101.0
+texture = ExtResource("1_jkwqd")
+region_rect = Rect2(0.0626869, -0.13867, 31.7205, 31.8841)
+patch_margin_left = 4
+patch_margin_top = 2
+patch_margin_right = 5
+patch_margin_bottom = 2
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 42.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_ef77n")
+text = "Name"
+
+[node name="Chat" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 21.0
+offset_right = 337.0
+offset_bottom = 73.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_ef77n")
+text = "Chatting...."
