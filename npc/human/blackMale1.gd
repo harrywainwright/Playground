@@ -24,6 +24,9 @@ func _ready():
 	endPosition = position
 	changeDirection()
 
+func entity():
+	pass
+
 func changeDirection():
 	randDir = rng.randi_range(1, 4) #removed idle for now (only triggres for instance, then changes)
 

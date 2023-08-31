@@ -36,22 +36,6 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.964706, 0.964706, 0.964706, 1)
 
-[sub_resource type="Animation" id="Animation_roymn"]
-resource_name = "enemy_damaged"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_0m0u0"]
 length = 0.001
 tracks/0/type = "value"
@@ -115,36 +99,20 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ytnv3"]
-resource_name = "shake"
+[sub_resource type="Animation" id="Animation_roymn"]
+resource_name = "enemy_damaged"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-8, -3), Vector2(5, 9), Vector2(-6, 6), Vector2(0, -8), Vector2(8, 1), Vector2(-1, 1), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ms234"]
-resource_name = "shake_mini"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-4, -3), Vector2(3, 5), Vector2(-3, 3), Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bbwpx"]
@@ -200,6 +168,38 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ytnv3"]
+resource_name = "shake"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-8, -3), Vector2(5, 9), Vector2(-6, 6), Vector2(0, -8), Vector2(8, 1), Vector2(-1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ms234"]
+resource_name = "shake_mini"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, -3), Vector2(3, 5), Vector2(-3, 3), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ecscq"]
@@ -277,11 +277,13 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer/Enemy"]
+layout_mode = 0
 texture = ExtResource("2_tkh1v")
 expand_mode = 5
 stretch_mode = 5
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer/Enemy/Enemy"]
+layout_mode = 0
 texture = ExtResource("2_tkh1v")
 expand_mode = 5
 stretch_mode = 5

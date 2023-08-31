@@ -1,0 +1,27 @@
+~ start
+
+if global.given_entity_item == false
+	Tyrone: [[Hi|Hey there|Sup]]... Whatchu want?
+	- Who are you?
+		Tyrone: Tyrone, I'm the park ranger. 
+	- I think I have something for you.
+		Tyone: Oh yeah?
+		- Yes, found something with your name on it.
+			if global.found_entity_item == true:
+				Tyrone: Ahh! Just what I was looking for, thank you.
+				set global.given_entity_item = true
+				=> END
+			else
+				Tyrone: I don't think so...
+				Tyrone: Let me know if you find it!
+				=> END
+		- No, I lied 
+		=> END
+	- Goodbye. 
+	=> END
+else:
+	Tyrone: [[Hi|Hey there|Sup]], thank you so much for finding my shit.
+	Tyrone: I'll pay you back...
+	=> END
+
+=> END
